@@ -66,7 +66,7 @@ function App() {
     <header>
       <h1 className="app-title">Hotel Information</h1>
     </header>
-
+    
       <div className="hotel-card">
         <div className="card-image-wrapper">
           <img src={hotelData.imageUrl} alt={hotelData.name} className="hotel-image" />
@@ -107,7 +107,18 @@ function App() {
                 <div className={`error-msg ${errors.name ? 'visible' : ''}`}>{errors.name}</div>
               </div>
 
-             
+              <div className="form-group">
+                <label className="form-label">Image URL:</label>
+                <input 
+                  type="text" 
+                  name="imageUrl" 
+                  value={formData.imageUrl} 
+                  onChange={handleChange}
+                  className="form-input"
+                  placeholder="https://example.com/image.jpg"
+                />
+                <div className={`error-msg ${errors.imageUrl ? 'visible' : ''}`}>{errors.imageUrl}</div>
+              </div>
 
               <div className="form-group">
                 <label className="form-label">Star Rating:</label>
