@@ -11,53 +11,28 @@ function App() {
   const [formData, setFormData] = useState({ ...hotelData });
   const [errors, setErrors] = useState({});
 
+  // Write your JavaScript Logic here
+
   const handleOpenModal = () => {
     setFormData({ ...hotelData });
     setErrors({});
-    setIsModalOpen(true);
+    
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: name === 'rating' ? parseInt(value, 10) : value
-    }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    
   };
 
   const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name  = 'Hotel Name is required';
-    if (!formData.imageUrl.trim()) {
-      newErrors.imageUrl = 'Image URL is required';
-    } else {
-      try {
-        new URL(formData.imageUrl);
-      } catch (err) {
-        newErrors.imageUrl = 'Please enter a valid URL';
-      }
-    }
-    if (!formData.rating || formData.rating < 1 || formData.rating > 5) {
-      newErrors.rating = 'Rating must be between 1 and 5';
-    }
     
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      setHotelData(formData);
-      setIsModalOpen(false);
-    }
+    
   };
 
   return (
